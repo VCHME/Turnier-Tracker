@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VCHME Tournament Tracker (Groups+KO)
  * Description: Shortcode [tournament_tracker id="beach2025"]. Gruppenphase (RR), KO (Play-In→QF→SF→Bronze→Finale), Courts, Tabellen.
- * Version: 1.3.7
+ * Version: 1.3.9
  * Author: ChatGPT
  */
 if (!defined('ABSPATH')) { exit; }
@@ -10,13 +10,13 @@ if (!defined('ABSPATH')) { exit; }
 class VCHME_TT_Full {
   public function __construct(){ add_shortcode('tournament_tracker', array($this,'render')); }
   private function enqueue_assets(){
-    $css = @file_get_contents(plugin_dir_path(__FILE__).'assets/style.v137.css');
+    $css = @file_get_contents(plugin_dir_path(__FILE__).'assets/style.v139.css');
     if($css){
-      wp_register_style('vchme-tt-style-v137', false);
-      wp_enqueue_style('vchme-tt-style-v137');
-      wp_add_inline_style('vchme-tt-style-v137', $css);
+      wp_register_style('vchme-tt-style-v139', false);
+      wp_enqueue_style('vchme-tt-style-v139');
+      wp_add_inline_style('vchme-tt-style-v139', $css);
     }
-    wp_enqueue_script('vchme-tt-app-v137', plugin_dir_url(__FILE__).'assets/app.v137.js', array(), '1.3.7', true);
+    wp_enqueue_script('vchme-tt-app-v139', plugin_dir_url(__FILE__).'assets/app.v139.js', array(), '1.3.9', true);
   }
   public function render($atts){
     $this->enqueue_assets();
@@ -75,8 +75,11 @@ class VCHME_TT_Full {
           <div class="vchme-tt__courts" id="tt-done-grid"></div>
 
           <div id="tt-tables-wrap">
-            <h4>Tabellen <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-toggle-tables" type="button">Ausblenden</button></h4>
-            <div id="tt-tables"></div>
+            <div class="vchme-tt__tables-head">
+              <h4>Tabellen</h4>
+              <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-toggle-tables" type="button">Ausblenden</button>
+            </div>
+            <div id="tt-tables" class="vchme-tt__tables-grid"></div>
           </div>
 
           <h4>Nächste Spiele</h4>
