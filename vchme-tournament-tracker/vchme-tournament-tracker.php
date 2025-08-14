@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: VCHME Tournament Tracker (Groups+KO)
- * Description: Shortcode [tournament_tracker id="beach2025"]. Gruppenphase (RR), KO (Play-In→QF→SF→Bronze→Finale), Courts, Tabellen.
+ * Plugin Name: Turnier-Tracker
+ * Description: Plugin zur Anzeige und Verwaltung von Volleyballturnieren
  * Version: 1.3.3
- * Author: ChatGPT
+ * Author: Manfred Richter
  */
 if (!defined('ABSPATH')) { exit; }
 
