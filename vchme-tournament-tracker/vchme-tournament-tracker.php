@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: turnier-tracker
+ * Plugin Name: Turnier-Tracker
  * Description: Plugin zur Anzeige und Verwaltung von Volleyballturnieren
  * Version: 1.3.3
  * Author: Manfred Richter
