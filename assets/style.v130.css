@@ -1,0 +1,21 @@
+.vchme-tt{--bg:#0b132b;--card:#1c2541;--muted:#3a506b;--text:#e0e6ef;--accent:#5bc0be;--accent-2:#ffd166;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text)}
+.vchme-tt *{box-sizing:border-box}
+.vchme-tt__card{background:var(--card);padding:16px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.25);margin:12px 0}
+.vchme-tt h2,h3,h4{margin:0 0 8px}
+.vchme-tt p{margin:0 0 12px;color:#c9d3df}
+.vchme-tt__teams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.vchme-tt__teams input{width:100%;padding:10px;border-radius:12px;border:1px solid var(--muted);background:#0f1a38;color:var(--text)}
+.vchme-tt__controls{display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.vchme-tt__btn{appearance:none;border:none;background:var(--accent);color:#062726;font-weight:700;padding:10px 14px;border-radius:12px;cursor:pointer}
+.vchme-tt__btn--ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.vchme-tt__grid-small{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.vchme-tt__courts{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:12px}
+.vchme-tt__court-col{background:#0f1a38;border:1px solid var(--muted);border-radius:12px;padding:10px}
+.vchme-tt__match{background:#0b1f3a;border:1px solid var(--muted);border-radius:10px;padding:10px;margin-bottom:8px}
+.vchme-tt__row{display:grid;grid-template-columns:1fr 70px;gap:8px;align-items:center}
+.vchme-tt__row input{width:100%;padding:8px;border-radius:10px;border:1px solid var(--muted);background:#0a1430;color:var(--text);text-align:center}
+.vchme-tt__label{font-size:12px;color:#9fb2c9;margin-bottom:4px}
+.vchme-tt__table{width:100%;border-collapse:collapse;background:#0f1a38;border-radius:12px;overflow:hidden;margin-top:8px}
+.vchme-tt__table th,.vchme-tt__table td{padding:8px 10px;border-bottom:1px solid var(--muted);text-align:left}
+.vchme-tt__table th{background:#0b1f3a;font-weight:700}
+@media(max-width:900px){.vchme-tt__courts{grid-template-columns:1fr} .vchme-tt__teams{grid-template-columns:1fr}}
