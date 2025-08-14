@@ -2,7 +2,7 @@
 /**
  * Plugin Name: VCHME Tournament Tracker (Groups+KO)
  * Description: Shortcode [tournament_tracker id="beach2025"]. Gruppenphase (RR), KO (Play-In→QF→SF→Bronze→Finale), Courts, Tabellen.
- * Version: 1.3.4
+ * Version: 1.3.5
  * Author: ChatGPT
  */
 if (!defined('ABSPATH')) { exit; }
@@ -10,13 +10,13 @@ if (!defined('ABSPATH')) { exit; }
 class VCHME_TT_Full {
   public function __construct(){ add_shortcode('tournament_tracker', array($this,'render')); }
   private function enqueue_assets(){
-    $css = @file_get_contents(plugin_dir_path(__FILE__).'assets/style.v134.css');
+    $css = @file_get_contents(plugin_dir_path(__FILE__).'assets/style.v135.css');
     if($css){
-      wp_register_style('vchme-tt-style-v134', false);
-      wp_enqueue_style('vchme-tt-style-v134');
-      wp_add_inline_style('vchme-tt-style-v134', $css);
+      wp_register_style('vchme-tt-style-v135', false);
+      wp_enqueue_style('vchme-tt-style-v135');
+      wp_add_inline_style('vchme-tt-style-v135', $css);
     }
-    wp_enqueue_script('vchme-tt-app-v134', plugin_dir_url(__FILE__).'assets/app.v134.js', array(), '1.3.4', true);
+    wp_enqueue_script('vchme-tt-app-v135', plugin_dir_url(__FILE__).'assets/app.v135.js', array(), '1.3.5', true);
   }
   public function render($atts){
     $this->enqueue_assets();
@@ -64,7 +64,6 @@ class VCHME_TT_Full {
               <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-toggle-setup" type="button">Teilnehmer einblenden</button>
               <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-fill-scores" type="button">Test‑Ergebnisse (1–21)</button>
               <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-build-ko" type="button">KO erstellen</button>
-              <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-toggle-tables" type="button">Tabellen ausblenden</button>
             </div>
           </div>
 
@@ -76,7 +75,7 @@ class VCHME_TT_Full {
           <div class="vchme-tt__courts" id="tt-done-grid"></div>
 
           <div id="tt-tables-wrap">
-            <h4>Tabellen</h4>
+            <h4>Tabellen <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-toggle-tables" type="button">Ausblenden</button></h4>
             <div id="tt-tables"></div>
           </div>
 
