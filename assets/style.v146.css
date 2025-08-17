@@ -1,0 +1,7 @@
+.vchme-tt__card{background:#1c2541;color:#e0e6ef;padding:16px;border-radius:16px;margin:12px 0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+.vchme-tt__teams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.vchme-tt__teams input{width:100%;padding:10px;border-radius:12px;border:1px solid #3a506b;background:#0f1a38;color:#e0e6ef}
+.vchme-tt__controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.vchme-tt__btn{appearance:none;border:none;background:#5bc0be;color:#062726;font-weight:700;padding:10px 14px;border-radius:12px;cursor:pointer}
+.vchme-tt__btn--ghost{background:transparent;color:#5bc0be;border:1px solid #5bc0be}
+.vchme-tt__grid-small{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0}
