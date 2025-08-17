@@ -1,0 +1,11 @@
+/* Gruppen-Badges */
+.gtag{display:inline-block;padding:2px 8px;border-radius:999px;color:#061826;font-weight:700}
+.g1{background:#B6E3FF}
+.g2{background:#FFE0B2}
+.g3{background:#C8E6C9}
+.g4{background:#F8BBD0}
+
+.vchme-tt__row--score{grid-template-columns:1fr 76px}
+.vchme-tt__name{width:100%;padding:8px;border-radius:10px;border:1px solid #3a506b;background:#0a1430;color:#e0e6ef}
+.vchme-tt__score{width:100%;padding:8px;border-radius:10px;border:1px solid #3a506b;background:#0a1430;color:#e0e6ef;text-align:center}
+.vchme-tt__match--done{opacity:.9;border-color:#4a6a86}
