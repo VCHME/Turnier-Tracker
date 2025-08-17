@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: VCHME Tournament Tracker
-Description: Turnier-Tracker (Setup + Buttons repariert). Shortcode: [tournament_tracker id="beach2025"]
-Version: 1.4.6
+Description: Turnier-Tracker (Setup + Buttons repariert, Demo-Button sichtbar). Shortcode: [tournament_tracker id="beach2025"]
+Version: 1.4.7
 Author: VCHME
 */
 if (!defined('ABSPATH')) exit;
@@ -14,9 +14,9 @@ class VCHME_TT_Plugin {
     add_action('wp_enqueue_scripts', array($this,'enqueue'));
   }
   public function enqueue(){
-    $ver = '1.4.6';
-    wp_enqueue_style('vchme-tt-style', plugins_url('assets/style.v146.css', __FILE__), array(), $ver);
-    wp_enqueue_script('vchme-tt-app', plugins_url('assets/app.v146.js', __FILE__), array(), $ver, true);
+    $ver = '1.4.7';
+    wp_enqueue_style('vchme-tt-style', plugins_url('assets/style.v147.css', __FILE__), array(), $ver);
+    wp_enqueue_script('vchme-tt-app', plugins_url('assets/app.v147.js', __FILE__), array(), $ver, true);
   }
   public function render($atts){
     $atts = shortcode_atts(array('id'=>'default'), $atts);
@@ -50,7 +50,7 @@ class VCHME_TT_Plugin {
     </div>
     <div class="vchme-tt__controls">
       <button class="vchme-tt__btn" id="tt-start" type="button">Turnier starten</button>
-      <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-demo" type="button">Demo füllen</button>
+      <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-demo" type="button">Demo befüllen</button>
       <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-clear" type="button">Zurücksetzen</button>
     </div>
   </div>
