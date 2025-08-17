@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: VCHME Tournament Tracker
-Description: Turnier-Tracker (Setup + Buttons repariert, Demo-Button sichtbar). Shortcode: [tournament_tracker id="beach2025"]
-Version: 1.4.7
+Description: Turnier-Tracker mit Gruppenphase (Round-Robin), Courts und Demo-Füllung. Shortcode: [tournament_tracker id="beach2025"]
+Version: 1.5.1
 Author: VCHME
 */
 if (!defined('ABSPATH')) exit;
@@ -14,9 +14,9 @@ class VCHME_TT_Plugin {
     add_action('wp_enqueue_scripts', array($this,'enqueue'));
   }
   public function enqueue(){
-    $ver = '1.4.7';
-    wp_enqueue_style('vchme-tt-style', plugins_url('assets/style.v147.css', __FILE__), array(), $ver);
-    wp_enqueue_script('vchme-tt-app', plugins_url('assets/app.v147.js', __FILE__), array(), $ver, true);
+    $ver = '1.5.1';
+    wp_enqueue_style('vchme-tt-style', plugins_url('assets/style.v151.css', __FILE__), array(), $ver);
+    wp_enqueue_script('vchme-tt-app', plugins_url('assets/app.v151.js', __FILE__), array(), $ver, true);
   }
   public function render($atts){
     $atts = shortcode_atts(array('id'=>'default'), $atts);
@@ -45,7 +45,7 @@ class VCHME_TT_Plugin {
     </div>
     <div class="vchme-tt__teams" id="tt-teams">
       <?php for($i=1;$i<=16;$i++): ?>
-        <input id="tt-team-<?php echo $i; ?>" name="tt-team-<?php echo $i; ?>" type="text" placeholder="Team <?php echo $i; ?>" value="" />
+        <input id="tt-team-<?php echo $i; ?>" name="tt-team-<?php echo $i; ?>" type="text" placeholder="Team <?php echo $i; ?>" value="" autocomplete="off"/>
       <?php endfor; ?>
     </div>
     <div class="vchme-tt__controls">
@@ -55,10 +55,20 @@ class VCHME_TT_Plugin {
     </div>
   </div>
 
-  <div class="vchme-tt__card" id="tt-live" style="display:none">
-    <h3>Live‑Ansicht</h3>
-    <p id="tt-status">Status: bereit</p>
-    <div id="tt-summary"></div>
+  <div class="vchme-tt__card" id="tt-groups-card" style="display:none">
+    <div class="vchme-tt__header">
+      <h3>Gruppenphase</h3>
+      <div>
+        <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-show-setup" type="button">Teilnehmer einblenden</button>
+      </div>
+    </div>
+    <div class="vchme-tt__tables-head">
+      <h4>Tabellen</h4>
+      <button class="vchme-tt__btn vchme-tt__btn--ghost" id="tt-toggle-tables" type="button">Ausblenden</button>
+    </div>
+    <div id="tt-tables" class="vchme-tt__tables-grid"></div>
+    <h4>Nächste Spiele</h4>
+    <div class="vchme-tt__courts" id="tt-next-grid"></div>
   </div>
 </div>
 <?php
