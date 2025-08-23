@@ -1,25 +1,30 @@
 <?php
-/*
-Plugin Name: VCHME Tournament Tracker
-Description: Turnierverwaltung mit Gruppen- und KO-Phase, inkl. Courts und Ergebniserfassung.
-Version: 1.5.4
-Author: VCHME
-*/
+/**
+ * Plugin Name: TT Tournament Tracker
+ * Description: React-basierter Turnier-Tracker mit Gruppen- und KO-Phase. Shortcode: [tournament_tracker]
+ * Version: 1.0.3
+ * Author: ChatGPT
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+if (!defined('ABSPATH')) { exit; }
 
-function vchme_tt_enqueue_assets() {
-    wp_enqueue_style('vchme-tt-style', plugins_url('assets/style.v154.css', __FILE__));
-    wp_enqueue_script('vchme-tt-app', plugins_url('assets/app.v154.js', __FILE__), array('jquery'), null, true);
-}
-add_action('wp_enqueue_scripts', 'vchme_tt_enqueue_assets');
-
-function vchme_tt_shortcode($atts) {
+function tt_tournament_tracker_shortcode() {
+    $app_url = plugins_url('assets/app.jsx', __FILE__);
     ob_start();
-    include plugin_dir_path(__FILE__) . 'template.php';
+    ?>
+    <div class="tt-tracker-wrapper">
+      <div class="tt-tracker-root"></div>
+    </div>
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React 18 UMD -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel Standalone for in-browser transform of JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- App JSX -->
+    <script type="text/babel" data-presets="react" src="<?php echo esc_url($app_url); ?>"></script>
+    <?php
     return ob_get_clean();
 }
-add_shortcode('tournament_tracker', 'vchme_tt_shortcode');
-?>
+add_shortcode('tournament_tracker', 'tt_tournament_tracker_shortcode');
